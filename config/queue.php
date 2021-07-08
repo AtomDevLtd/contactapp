@@ -71,6 +71,15 @@ return [
             'after_commit' => false,
         ],
 
+        'redis-horizon' => [
+            'driver' => 'redis',
+            'connection' => 'horizon',
+            'queue' => env('REDIS_HORIZON_QUEUE', 'default-horizon-queue'),
+            'retry_after' => 90,
+            'block_for' => null,
+            'after_commit' => false,
+        ],
+
     ],
 
     /*

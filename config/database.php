@@ -132,14 +132,39 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_DB', '0'),
+            'options' => [
+                'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
+            ],
         ],
 
         'cache' => [
-            'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', '6379'),
+            'url' => env('REDIS_CACHE_URL'),
+            'host' => env('REDIS_CACHE_HOST', '127.0.0.1'),
+            'password' => env('REDIS_CACHE_PASSWORD', null),
+            'port' => env('REDIS_CACHE_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
+            'options' => [
+                'prefix' => '',
+            ],
+        ],
+
+        'sessions' => [
+            'url' => env('REDIS_SESSIONS_URL'),
+            'host' => env('REDIS_SESSIONS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_SESSIONS_PASSWORD', null),
+            'port' => env('REDIS_SESSIONS_PORT', '6379'),
+            'database' => env('REDIS_SESSIONS_DB', '2'),
+            'options' => [
+                'prefix' => '',
+            ],
+        ],
+
+        'horizon' => [
+            'url' => env('REDIS_HORIZON_URL'),
+            'host' => env('REDIS_HORIZON_HOST', '127.0.0.1'),
+            'password' => env('REDIS_HORIZON_PASSWORD', null),
+            'port' => env('REDIS_HORIZON_PORT', '6379'),
+            'database' => env('REDIS_HORIZON_DB', '3'),
         ],
 
     ],

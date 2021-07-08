@@ -79,6 +79,13 @@ return [
             'lock_connection' => 'default',
         ],
 
+        'redis-sessions-cache' => [
+            'driver' => 'redis',
+            'connection' => 'sessions',
+            'lock_connection' => 'default',
+            'prefix' => Str::slug(env('APP_NAME', 'laravel'), '_') . '_sessions_cache',
+        ],
+
         'dynamodb' => [
             'driver' => 'dynamodb',
             'key' => env('AWS_ACCESS_KEY_ID'),

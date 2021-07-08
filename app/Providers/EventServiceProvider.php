@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Catalog;
+use App\Models\Contact;
+use App\Observers\CatalogObserver;
+use App\Observers\ContactObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -27,6 +31,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Catalog::observe(CatalogObserver::class);
+        Contact::observe(ContactObserver::class);
     }
 }

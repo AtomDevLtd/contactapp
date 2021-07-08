@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'klaviyo_api_key',
     ];
 
     /**
@@ -40,4 +41,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * All of the models Mutators&Accessors
+     * should begin from here.
+     */
+
+    /**
+     * All of the models scopes methods
+     * should begin from here.
+     */
+
+    /**
+     * All of the models custom methods
+     * should begin from here.
+     */
+
+    public function hasKlaviyoApiKey(): bool
+    {
+        return filled($this->klaviyo_api_key);
+    }
+
+    /**
+     * All of the models method overwrites
+     * should begin from here.
+     */
+
+
+    /**
+     * All of the models relationships
+     * should begin from here.
+     */
+
 }
