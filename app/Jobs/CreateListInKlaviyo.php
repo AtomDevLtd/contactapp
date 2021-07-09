@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\ListHasBeenSynced;
 use App\Models\ApiIntegration;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -58,6 +59,8 @@ class CreateListInKlaviyo implements ShouldQueue, ShouldBeUnique
                 'syncable_external_id' => $createdList['list_id'],
                 'syncable_synced_at'   => now(),
             ]);
+
+            ListHasBeenSynced::dispatch($this->apiIntegration->syncable);
         }
     }
 }

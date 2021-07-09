@@ -170,6 +170,7 @@ return [
             'queue' => [
                 'default-horizon-queue',
                 'api-operations',
+                'broadcasts',
             ],
             'balance' => 'auto',
             'maxProcesses' => 1,

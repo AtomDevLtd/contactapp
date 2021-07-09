@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\ContactHasBeenSynced;
 use App\Exceptions\ListInKlaviyo;
 use App\Models\ApiIntegration;
 use App\Models\User;
@@ -84,6 +85,8 @@ class CreateContactInKlaviyo implements ShouldQueue, ShouldBeUnique
                 'syncable_external_id' => $createdContact[0]['id'],
                 'syncable_synced_at'   => now(),
             ]);
+
+            ContactHasBeenSynced::dispatch($this->apiIntegration->syncable);
         }
     }
 }
