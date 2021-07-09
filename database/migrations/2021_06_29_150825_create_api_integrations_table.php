@@ -15,10 +15,10 @@ class CreateApiIntegrationsTable extends Migration
     {
         Schema::create('api_integrations', function (Blueprint $table) {
             $table->id();
-            $table->string('api_vendor')->index();
-            $table->string('api_vendor_key')->index();
+            $table->string('api_vendor', 50)->index();
+            $table->string('api_vendor_key', 100)->index();
             $table->morphs('syncable');
-            $table->string('syncable_external_id')->nullable()->index();
+            $table->string('syncable_external_id', 100)->nullable()->index();
             $table->dateTime('syncable_synced_at')->nullable();
             $table->timestamps();
 
